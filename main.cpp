@@ -16,7 +16,7 @@
 int main(int argv, char* argc[]) { 
     auto algorithm = Math(); 
 
-    auto result = algorithm.my_sqrt(2147395599); 
+    auto result = algorithm.is_happy(1); 
 
     return 0; 
 } 
