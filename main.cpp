@@ -7,15 +7,16 @@
 #include "algorithms/linked_lists.hpp" 
 #include "algorithms/trees.hpp" 
 #include "algorithms/graphs.hpp" 
+#include "algorithms/math.hpp" 
 #include "threads/threading.hpp" 
 #include "matrices/matrix.hpp" 
 
 
 
 int main(int argv, char* argc[]) { 
-    auto algorithm = DynamicProgramming(); 
+    auto algorithm = Math(); 
 
-    auto result = algorithm.pascals_triangle(6); 
+    auto result = algorithm.my_sqrt(2147395599); 
 
     return 0; 
 } 
