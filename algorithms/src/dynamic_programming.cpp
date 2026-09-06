@@ -220,3 +220,27 @@ std::vector<std::vector<int>> DynamicProgramming::pascals_triangle(int num_rows)
 
     return triangle; 
 }; 
+
+
+std::vector<int> DynamicProgramming::pascals_triangle_row(int row_index) { 
+    /*
+    Approaches: 
+    - O(n^2), for a given index n in curr_row it's value is prev_row[n - 1] + prev_row[n], the ith row has i + 1 elements, return row
+
+    */
+
+    // Base case, at least one row 
+    std::vector<int> prev_row {1}; 
+
+    for (int i = 1; i <= row_index; i++) { 
+        std::vector<int> curr_row(i + 1, 1); 
+
+        for (int j = 1; j < i; j++) {
+            curr_row[j] = prev_row[j - 1] + prev_row[j]; 
+        }
+
+        prev_row = std::move(curr_row); 
+    }
+
+    return prev_row; 
+}; 

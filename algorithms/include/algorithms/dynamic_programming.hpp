@@ -26,6 +26,9 @@ class DynamicProgramming {
 
         // O(n^2), for a given index n in curr_row it's value is prev_row[n - 1] + prev_row[n], the ith row has i + 1 elements, 
         std::vector<std::vector<int>> pascals_triangle(int num_rows); 
+
+        // O(n^2), for a given index n in curr_row it's value is prev_row[n - 1] + prev_row[n], the ith row has i + 1 elements, 
+        std::vector<int> pascals_triangle_row(int row_index); 
 }; 
 
 /*
