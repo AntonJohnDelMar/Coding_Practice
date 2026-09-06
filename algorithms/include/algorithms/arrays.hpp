@@ -66,6 +66,9 @@ class Array {
 
         // O(n), first idx is the max left and the last idx is the min right, move left and right and track the new max and min as if you started at that index, once we are halfway we can start calculating the stability of the left and right pointers 
         int first_stable_index(std::vector<int> &nums, int k); 
+
+        // O(n) time, O(1) space, Boyer-Moore majority vote algorithm, start candidate with vote of 1, if the next num is same increment otherwise decrement, if vote is 0 set the current num as new candidate, in the end one candidate should remain, 
+        int majority_element(std::vector<int> &nums); 
 }; 
 
 /*

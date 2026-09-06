@@ -533,3 +533,28 @@ int Array::first_stable_index(std::vector<int> &nums, int k) {
 
     return first_index; 
 }; 
+
+
+int Array::majority_element(std::vector<int> &nums) { 
+    /*
+    Approaches: 
+    - O(n) time, O(unique nums) space, Use hash map, track majority num as we iterate, 
+    - O(n) time, O(1) space, Boyer-Moore majority vote algorithm, start candidate with vote of 1, if the next num is same increment otherwise decrement, if vote is 0 set the current num as new candidate, in the end one candidate should remain, 
+
+    */
+
+    int vote = 1; 
+    int candidate = nums[0]; 
+
+    for (int i = 1; i < nums.size(); i++) {
+        if (nums[i] == candidate) vote++; 
+        else vote--; 
+
+        if (vote == 0) {
+            candidate = nums[i]; 
+            vote = 1;
+        }
+    }
+
+    return candidate; 
+}; 
