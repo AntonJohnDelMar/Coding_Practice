@@ -20,4 +20,7 @@ class Math {
 
         // O(1) time, use log base 2 and see if it is whole 
         bool is_power_of_two(int n); 
+
+        // O(n) time, O(1) space, take sum of natural numbers up until n and sum of nums, subtract the two to find the missing num, to save space a little more space we can subtract nums as we take sum of natural numbers 
+        int missing_number(std::vector<int> &nums); 
 }; 

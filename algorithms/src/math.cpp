@@ -120,3 +120,22 @@ bool Math::is_power_of_two(int n) {
 
     */
 }; 
+
+
+int Math::missing_number(std::vector<int> &nums) { 
+    /*
+    Approaches: 
+    - O(logn + n) time, O(1) space, sort then itr in order until we find the missing number 
+    - O(n) time, O(n) space, use array of zeros and fill it out with each respective number, in the end itr until we find the idx with the zero left in it 
+    - O(n) time, O(1) space, take sum of natural numbers up until n and sum of nums, subtract the two to find the missing num, to save space a little more space we can subtract nums as we take sum of natural numbers 
+
+    */
+
+    int natural_sum = nums.size(); 
+
+    for (int i = 0; i < nums.size(); i++) {
+        natural_sum += (i - nums[i]); 
+    }
+
+    return natural_sum; 
+}; 
