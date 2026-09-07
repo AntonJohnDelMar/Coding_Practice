@@ -17,4 +17,7 @@ class Math {
 
         // O(logn) time, take squared sum of digits (n % 10)^2, use Floyd's cycle algorithm to detect cycle, check if we hit 1, 
         bool is_happy(int n); 
+
+        // O(1) time, use log base 2 and see if it is whole 
+        bool is_power_of_two(int n); 
 }; 

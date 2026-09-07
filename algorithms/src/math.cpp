@@ -91,3 +91,32 @@ bool Math::is_happy(int n) {
     return squared_sum == 1; 
     */
 }; 
+
+
+bool Math::is_power_of_two(int n) {
+    /*
+    Approaches: 
+    - O(logn) time, we can modulo by two and check if there is a remainder 
+    - O(1) time, use log base 2 and see if it is whole 
+    - O(1) time, bit manipulation trick, n & n - 1 == 0, 
+
+    */
+
+    return (std::log2(n) == floor(std::log2(n))) && n != 0; 
+    /*
+    Loop solution 
+    while (n != 1) {
+        if (n % 2 != 0) return false; 
+        n /= 2; 
+    } 
+
+    return true; 
+
+    Solution without loops, log base 2 
+    return (std::log2(n) == floor(std::log2(n))) && n != 0; 
+
+    Bit manipulation trick ! If it is a power of two it has a single one bit, so subtracting one would have all other bits as one except the end bit, then if you and you should get zero, 
+    return n > 0 && (n & (n - 1)) == 0;
+
+    */
+}; 
