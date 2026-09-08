@@ -26,4 +26,7 @@ class Math {
 
         // O(1) time, return n - 999 if n is > 999, because that is the amount of commas it would have 
         int count_commas(int n); 
+
+        // O(1) time, digital root, calculate using floor formula method 
+        int add_digits(int num); 
 }; 

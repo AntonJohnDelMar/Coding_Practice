@@ -151,3 +151,32 @@ int Math::count_commas(int n) {
 
     return n >= 1000 ? n - 999 : 0; 
 }; 
+
+
+int Math::add_digits(int num) {
+    /*
+    Approaches: 
+    - add up all digits in num using modulo, repeat until we have a single digit 
+    - O(1) time, digital root, calculate using floor formula method 
+
+    */
+
+    return num - 9 * ((num - 1) / 9); 
+    /* 
+    auto add_up = [](int num) -> int {
+        int sum = 0; 
+        while (num != 0) { 
+            sum += num % 10; 
+            num /= 10; 
+        }
+
+        return sum; 
+    }; 
+
+    while (num % 10 != num) {
+        num = add_up(num); 
+    }
+
+    return num; 
+    */
+}; 
