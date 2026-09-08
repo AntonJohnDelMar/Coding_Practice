@@ -23,4 +23,7 @@ class Math {
 
         // O(n) time, O(1) space, take sum of natural numbers up until n and sum of nums, subtract the two to find the missing num, to save space a little more space we can subtract nums as we take sum of natural numbers 
         int missing_number(std::vector<int> &nums); 
+
+        // O(1) time, return n - 999 if n is > 999, because that is the amount of commas it would have 
+        int count_commas(int n); 
 }; 

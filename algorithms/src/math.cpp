@@ -139,3 +139,15 @@ int Math::missing_number(std::vector<int> &nums) {
 
     return natural_sum; 
 }; 
+
+
+int Math::count_commas(int n) {
+    /* 
+    Approaches: 
+    - Modulo by 10^k until it returns n, the remainders are the amount of commas, minus 999 as those numbers don't have commas 
+    - O(1) time, if n is > 999 then return n - 999, this is the amount of numbers with at least one comma 
+
+    */
+
+    return n >= 1000 ? n - 999 : 0; 
+}; 

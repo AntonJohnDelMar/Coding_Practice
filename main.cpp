@@ -16,7 +16,7 @@
 int main(int argv, char* argc[]) { 
     auto algorithm = Math(); 
 
-    auto result = algorithm.is_happy(1); 
+    auto result = algorithm.count_commas(1234); 
 
     return 0; 
 } 
