@@ -29,4 +29,7 @@ class Math {
 
         // O(1) time, digital root, calculate using floor formula method 
         int add_digits(int num); 
+
+        // O(k) time, divide n by our constrained prime factors if their mod is 0 until we get to 1 or a number with prime factors outside our constraint 
+        bool is_ugly(int n); 
 }; 

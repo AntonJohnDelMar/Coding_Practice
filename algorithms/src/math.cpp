@@ -180,3 +180,27 @@ int Math::add_digits(int num) {
     return num; 
     */
 }; 
+
+
+bool Math::is_ugly(int n) {
+    /*
+    Approaches: 
+    - O(k) time, divide n by our constrained prime factors if their mod is 0 until we get to 1 or a number with prime factors outside our constraint 
+    
+    */
+
+    std::vector<int> prime_factors {2, 3, 5}; 
+
+    while (n != 1 && n != 0) { 
+
+        for (int i = 0; i < prime_factors.size(); i++) { 
+            if (n % prime_factors[i] == 0) { 
+                n /= prime_factors[i]; 
+                break; 
+            } 
+            else if (i == prime_factors.size() - 1) n = 0; 
+        }
+    }
+
+    return n == 1; 
+}; 
