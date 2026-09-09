@@ -32,4 +32,7 @@ class Math {
 
         // O(k) time, divide n by our constrained prime factors if their mod is 0 until we get to 1 or a number with prime factors outside our constraint 
         bool is_ugly(int n); 
+
+        // O(k) time, O(1) space, determine number of commas k in n, multiply k * n then subtract the max of subset groups, i.e. 1,234,567,890 * 3 - 999,999,999 - 999,999 - 999 
+        long long count_commas_II(long long n); 
 }; 

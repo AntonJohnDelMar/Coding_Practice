@@ -204,3 +204,28 @@ bool Math::is_ugly(int n) {
 
     return n == 1; 
 }; 
+
+
+long long Math::count_commas_II(long long n) {
+    /*
+    Approaches: 
+    - check number of digits, every three digits adds a comma, check groups using modulo, 
+    - O(k) time, O(1) space, determine number of commas k in n, multiply k * n then subtract the max of subset groups, i.e. 1,234,567,890 * 3 - 999,999,999 - 999,999 - 999 
+
+    1,000,000,000 
+    */
+
+    long long comma_count = 0; 
+    int commas = 0; 
+
+    long long base = 1e3; 
+
+    while (n > base - 1) { 
+        comma_count -= base - 1; 
+        commas++; 
+
+        base *= 1e3; 
+    }
+
+    return n * commas + comma_count; 
+}; 
