@@ -35,4 +35,7 @@ class Math {
 
         // O(k) time, O(1) space, determine number of commas k in n, multiply k * n then subtract the max of subset groups, i.e. 1,234,567,890 * 3 - 999,999,999 - 999,999 - 999 
         long long count_commas_II(long long n); 
+
+        // O(1) time, use log base 3 and check if it is a whole number, 
+        bool is_power_of_three(int n); 
 }; 

@@ -229,3 +229,29 @@ long long Math::count_commas_II(long long n) {
 
     return n * commas + comma_count; 
 }; 
+
+
+bool Math::is_power_of_three(int n) {
+    /* 
+    Approaches: 
+    - O(1) time, use log base 3 and check if it is a whole number, 
+    - O(k) time, keep dividing by 3, if modulo is not zero fail 
+    - O(1) time, mod the max power of 3 an int can represent (3^19) by n, if it is 0 then it is a power of three 
+
+    */ 
+ 
+    return n <= 0 ? false : (std::log10(n) / std::log10(3)) == floor(std::log10(n) / std::log10(3));
+    /* 
+    if (n <= 0) return false; 
+
+    while (n % 3 == 0) {
+        n /= 3; 
+    }
+
+    return n == 1; 
+    // return n <= 0 ? false : (std::log10(n) / std::log10(3)) == floor(std::log10(n) / std::log10(3));
+
+    int MAX_POWER_OF_THREE = 1162261467; 
+    return n <= 0 ? false : MAX_POWER_OF_THREE % n == 0; 
+    */
+}; 
