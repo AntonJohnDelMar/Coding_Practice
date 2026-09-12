@@ -69,6 +69,9 @@ class Array {
 
         // O(n) time, O(1) space, Boyer-Moore majority vote algorithm, start candidate with vote of 1, if the next num is same increment otherwise decrement, if vote is 0 set the current num as new candidate, in the end one candidate should remain, 
         int majority_element(std::vector<int> &nums); 
+
+        // O(n + m) time, O(n + k) space, use a set to save seen vals for nums_1 then check nums_2 and remove intersecting numbers from seen to prevent duplicates, 
+        std::vector<int> intersection(std::vector<int> &nums_1, std::vector<int> &nums_2); 
 }; 
 
 /*

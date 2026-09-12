@@ -558,3 +558,27 @@ int Array::majority_element(std::vector<int> &nums) {
 
     return candidate; 
 }; 
+
+
+std::vector<int> Array::intersection(std::vector<int> &nums_1, std::vector<int> &nums_2) {
+    /*
+    Approaches: 
+    - O(n + m) time, O(n + k) space, use a set to save seen vals for nums_1 then check nums_2 and remove intersecting numbers from seen to prevent duplicates, 
+
+    nums_1 = [4, 9, 5, 4], nums_2 = [9, 4, 9, 8, 4], result = [4, 9] 
+    */
+
+    std::unordered_set<int> seen_nums_1; 
+
+    for (auto &num : nums_1) seen_nums_1.insert(num); 
+
+    std::vector<int> result; 
+    for (auto &num : nums_2) { 
+        if (seen_nums_1.contains(num)) { 
+            seen_nums_1.erase(num); 
+            result.push_back(num); 
+        } 
+    } 
+
+    return result; 
+}; 
