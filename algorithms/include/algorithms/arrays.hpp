@@ -72,6 +72,9 @@ class Array {
 
         // O(n + m) time, O(n + k) space, use a set to save seen vals for nums_1 then check nums_2 and remove intersecting numbers from seen to prevent duplicates, 
         std::vector<int> intersection(std::vector<int> &nums_1, std::vector<int> &nums_2); 
+
+        // O(n + m + k) time, use two maps to save the frequencies of vals, then take the min frequency between interesecting elements 
+        std::vector<int> intersection_II(std::vector<int> &nums_1, std::vector<int> &nums_2); 
 }; 
 
 /*

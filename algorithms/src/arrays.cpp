@@ -582,3 +582,29 @@ std::vector<int> Array::intersection(std::vector<int> &nums_1, std::vector<int> 
 
     return result; 
 }; 
+
+
+std::vector<int> Array::intersection_II(std::vector<int> &nums_1, std::vector<int> &nums_2) { 
+    /*
+    Approaches: 
+    - O(n + m + k) time, use two maps to save the frequencies of vals, then take the min frequency between interesecting elements 
+
+    */
+
+    std::unordered_map<int, int> seen_nums_1; 
+    std::unordered_map<int, int> seen_nums_2; 
+
+    for (auto &num : nums_1) seen_nums_1[num]++; 
+    for (auto &num : nums_2) seen_nums_2[num]++; 
+
+    std::vector<int> result; 
+    for (auto &key_val : seen_nums_1) { 
+        if (seen_nums_2.contains(key_val.first)) {
+            for (int i = 0; i < std::min(seen_nums_1[key_val.first], seen_nums_2[key_val.first]); i++) {
+                result.push_back(key_val.first); 
+            }
+        }
+    }
+
+    return result; 
+}; 
