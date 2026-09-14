@@ -15,8 +15,10 @@
 
 int main(int argv, char* argc[]) { 
     auto algorithm = Math(); 
+    std::vector<int> rec_1 {0,0,1,1}; 
+    std::vector<int> rec_2 {1,0,2,1}; 
 
-    auto result = algorithm.count_commas_II(1000); 
+    auto result = algorithm.is_rectangle_overlap(rec_1, rec_2); 
 
     return 0; 
 } 

@@ -255,3 +255,22 @@ bool Math::is_power_of_three(int n) {
     return n <= 0 ? false : MAX_POWER_OF_THREE % n == 0; 
     */
 }; 
+
+
+bool Math::is_rectangle_overlap(std::vector<int> &rec_1, std::vector<int> &rec_2) {
+    /*
+    Approaches: 
+    - O(1) time, check if projection of x lines and y lines overlap, they both must overlap for an intersection 
+
+    */
+
+    auto check_x_overlap = [](std::vector<int> &rec_1, std::vector<int> &rec_2) -> bool { 
+        return (rec_1[0] <= rec_2[0] && rec_2[0] < rec_1[2]) || (rec_1[0] < rec_2[2] && rec_2[2] <= rec_1[2]); 
+    }; 
+
+    auto check_y_overlap = [](std::vector<int> &rec_1, std::vector<int> &rec_2) -> bool { 
+        return (rec_1[1] <= rec_2[1] && rec_2[1] < rec_1[3]) || (rec_1[1] < rec_2[3] && rec_2[3] <= rec_1[3]); 
+    }; 
+
+    return (check_x_overlap(rec_1, rec_2) || check_x_overlap(rec_2, rec_1)) && (check_y_overlap(rec_1, rec_2) || check_y_overlap(rec_2, rec_1)); 
+}; 

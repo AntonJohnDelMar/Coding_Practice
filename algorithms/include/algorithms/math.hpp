@@ -38,4 +38,7 @@ class Math {
 
         // O(1) time, use log base 3 and check if it is a whole number, 
         bool is_power_of_three(int n); 
+
+        // O(1) time, check if projection of x lines and y lines overlap, they both must overlap for an intersection 
+        bool is_rectangle_overlap(std::vector<int> &rec_1, std::vector<int> &rec_2); 
 }; 
