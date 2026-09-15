@@ -254,3 +254,32 @@ ListNode* LinkedList::get_intersection_node(ListNode* head_A, ListNode* head_B) 
 
     return curr_A; 
 }; 
+
+
+ListNode* LinkedList::remove_elements(ListNode* head, int val) {
+    /*
+    Approaches: 
+    - O(n) time, O(1) space, itr the list and connect prev node to next node of curr node if it is the target value, 
+
+    [7, 7, 7, 8, 9], val = 7 
+    [1, 2, 3, 4, 4, 5, 6], val = 4 
+    */
+
+    ListNode* root = nullptr; 
+    ListNode* prev_node = nullptr; 
+
+    while (head != nullptr) {
+        if (head->val == val) { 
+            if (prev_node != nullptr) prev_node->next = head->next; 
+        }
+
+        else {
+            if (prev_node == nullptr) root = head; 
+            prev_node = head; 
+        }
+
+        head = head->next; 
+    } 
+
+    return root; 
+}; 

@@ -42,6 +42,9 @@ class LinkedList {
 
         // O(n + m) time, O(1) space, make the lists the same size n + m the final node will be the intersect, to do this loop list A to list B when it hits it's end and vice versa, 
         ListNode* get_intersection_node(ListNode* head_A, ListNode* head_B); 
+
+        // O(n) time, O(1) space, itr the list and connect prev node to next node of curr node if it is the target value, 
+        ListNode* remove_elements(ListNode* head, int val); 
 }; 
 
 /* 
