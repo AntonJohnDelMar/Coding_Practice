@@ -39,6 +39,9 @@ class LinkedList {
 
         // O(n) time, O(1) space, list is sorted so check if next val equals curr val, delete dup by skipping the next val since it is a dup 
         ListNode* delete_duplicates(ListNode* head); 
+
+        // O(n + m) time, O(1) space, make the lists the same size n + m the final node will be the intersect, to do this loop list A to list B when it hits it's end and vice versa, 
+        ListNode* get_intersection_node(ListNode* head_A, ListNode* head_B); 
 }; 
 
 /* 

@@ -231,3 +231,26 @@ ListNode* LinkedList::delete_duplicates(ListNode* head) {
 
     return head; 
 }; 
+
+
+ListNode* LinkedList::get_intersection_node(ListNode* head_A, ListNode* head_B) { 
+    /*
+    Approaches: 
+    - O(n + m) time, O(n + m) space, itr through both linked lists and save node pointers in a set, if we find a matching node return it, 
+    - O(n + m) time, O(1) space, make the lists the same size n + m the final node will be the intersect, to do this loop list A to list B when it hits it's end and vice versa, 
+    
+    */
+
+    ListNode* curr_A = head_A; 
+    ListNode* curr_B = head_B; 
+
+    while (curr_A != curr_B) {
+        if (curr_A == nullptr) curr_A = head_B; 
+        else curr_A = curr_A->next; 
+
+        if (curr_B == nullptr) curr_B = head_A; 
+        else curr_B = curr_B->next; 
+    }
+
+    return curr_A; 
+}; 
