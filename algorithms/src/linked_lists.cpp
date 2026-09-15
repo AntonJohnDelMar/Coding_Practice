@@ -170,7 +170,7 @@ std::vector<int> LinkedList::nodes_between_critical_points(ListNode* head) {
     /* 
     Approaches: 
     - use a window as we iterate through the list, in this case the window is achieved by saving our previous value and just comparing our node val next node val and prev node val, as we move the window we keep track of the index of the middle element, with another list we track critical points 
-    - O(n), track prev val to compare prev current and next val for crit point, save idx of first crit point for later, as we add crit points check dist between prev and current crit point for min distance, in the end check first and last crit point for max distance 
+    - o(n), track prev val to compare prev current and next val for crit point, save idx of first crit point for later, as we add crit points check dist between prev and current crit point for min distance, in the end check first and last crit point for max distance 
 
     [5, 3, 1, 2, 5, 1, 2] 
 
@@ -207,4 +207,27 @@ std::vector<int> LinkedList::nodes_between_critical_points(ListNode* head) {
         int max_distance = prev_idx - first_idx; 
         return {min_distance, max_distance}; 
     } 
+}; 
+
+
+ListNode* LinkedList::delete_duplicates(ListNode* head) {
+    /*
+    Approaches: 
+    - use a set to track unique vals, to delete a dup node just connect the prev node to dup nodes next node, 
+    - since the list is sorted already just check if the current val equals the prev val, to delete a dup node just connect the prev node to dup nodes next node, 
+    - O(n) time, O(1) space, list is sorted so check if next val equals curr val, delete dup by skipping the next val since it is a dup 
+
+    */
+    ListNode* curr_node = head; 
+
+    while (curr_node != nullptr && curr_node->next != nullptr) { 
+
+        while (curr_node->next != nullptr && curr_node->val == curr_node->next->val) {
+            curr_node->next = curr_node->next->next; 
+        }
+
+        curr_node = curr_node->next; 
+    }
+
+    return head; 
 }; 
