@@ -44,4 +44,7 @@ class Math {
 
         // O(1) time, you can only win if the number of stones is not divisible by 4 when you start,
         bool can_win_nim(int n); 
+
+        // O(logn) time, binary search for the square, if we cannot find a whole int return false 
+        bool is_perfect_square(int num); 
 }; 

@@ -14,10 +14,9 @@
 
 
 int main(int argv, char* argc[]) { 
-    auto algorithm = LinkedList(); 
-    ListNode* root = algorithm.generate_list({1, 2, 2, 1}); 
+    auto algorithm = Math(); 
 
-    auto result = algorithm.is_palindrome(root); 
+    auto result = algorithm.is_perfect_square(17); 
 
     return 0; 
 } 

@@ -286,3 +286,27 @@ bool Math::can_win_nim(int n) {
 
     return n % 4 != 0; 
 }; 
+
+
+bool Math::is_perfect_square(int num) { 
+    /*
+    Approaches: 
+    - O(logn) time, binary search for the square, if we cannot find a whole int return false 
+
+    */
+
+    constexpr int MAX_SQUARE_VAL = 46340; 
+    int left = 0; 
+    int right = std::min(num, MAX_SQUARE_VAL); 
+
+    while (left <= right) { 
+        int middle = ((left + right) / 2); 
+        int square = middle * middle; 
+
+        if (square > num) right = middle - 1; 
+        else if (square < num) left = middle + 1; 
+        else return true; 
+    } 
+
+    return false; 
+}; 
