@@ -2,6 +2,7 @@
 #include <unordered_set> 
 #include <vector> 
 #include <queue> 
+#include <algorithm> 
 
 
 
@@ -45,6 +46,9 @@ class LinkedList {
 
         // O(n) time, O(1) space, itr the list and connect prev node to next node of curr node if it is the target value, 
         ListNode* remove_elements(ListNode* head, int val); 
+
+        // O(n) time, O(1) space, tortoise / hare algorithm, when fast reaches the end then slow is in the middle, slow will reverse the last half, then we can compare first and last half 
+        bool is_palindrome(ListNode* head); 
 }; 
 
 /* 

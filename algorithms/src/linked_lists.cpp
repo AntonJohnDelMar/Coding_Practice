@@ -283,3 +283,48 @@ ListNode* LinkedList::remove_elements(ListNode* head, int val) {
 
     return root; 
 }; 
+
+
+bool LinkedList::is_palindrome(ListNode* head) {
+    /*
+    Approaches: 
+    - O(n) time, O(n) space, use a stack to track elements and remove them, in the end it should be empty or have one element if it is a palindrome, doesn't work if there is odd amount of elements as we end up not popping the stack ! 
+    - O(2n) = O(n) time, O(n) space, save linked list as a vector, then use two pointers to see if it is palindrome 
+    - O(n) time, O(1) space, tortoise / hare algorithm, when fast reaches the end then slow is in the middle, slow will reverse the last half, then we can compare first and last half 
+
+    */
+
+    ListNode* slow = head; 
+    ListNode* fast = head; 
+    ListNode* prev = nullptr; 
+    ListNode* temp = nullptr; 
+
+    while (fast && fast->next) {
+        fast = fast->next->next; 
+        slow = slow->next; 
+    }
+
+    prev = slow; 
+    slow = slow->next; 
+    prev->next = nullptr; 
+
+    while (slow) {
+        temp = slow->next; 
+        slow->next = prev; 
+        prev = slow; 
+        slow = temp; 
+    }
+
+    fast = head; 
+    slow = prev; 
+
+    while (slow) {
+        if (slow->val != fast->val) return false; 
+        else {
+            slow = slow->next; 
+            fast = fast->next; 
+        }
+    }
+
+    return true; 
+}; 

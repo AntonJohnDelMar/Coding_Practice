@@ -14,11 +14,10 @@
 
 
 int main(int argv, char* argc[]) { 
-    auto algorithm = Math(); 
-    std::vector<int> rec_1 {0,0,1,1}; 
-    std::vector<int> rec_2 {1,0,2,1}; 
+    auto algorithm = LinkedList(); 
+    ListNode* root = algorithm.generate_list({1, 2, 2, 1}); 
 
-    auto result = algorithm.is_rectangle_overlap(rec_1, rec_2); 
+    auto result = algorithm.is_palindrome(root); 
 
     return 0; 
 } 
