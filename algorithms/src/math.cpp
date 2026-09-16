@@ -274,3 +274,15 @@ bool Math::is_rectangle_overlap(std::vector<int> &rec_1, std::vector<int> &rec_2
 
     return (check_x_overlap(rec_1, rec_2) || check_x_overlap(rec_2, rec_1)) && (check_y_overlap(rec_1, rec_2) || check_y_overlap(rec_2, rec_1)); 
 }; 
+
+
+bool Math::can_win_nim(int n) { 
+    /*
+    Approaches: 
+    - O(1) time, you can only win if the number of stones is not divisible by 4 when you start, 
+
+    1, 2, 3 are wins, starting at 4 is a loss as no matter how many I stones remove they can remove the last few their turn, if I am at 5, 6, 7 then I can force them into the 4 case, if I am at 8 I can only reach 5, 6, 7 so they force me into the 4 case their turn, 
+    */ 
+
+    return n % 4 != 0; 
+}; 

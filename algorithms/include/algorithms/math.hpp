@@ -41,4 +41,7 @@ class Math {
 
         // O(1) time, check if projection of x lines and y lines overlap, they both must overlap for an intersection 
         bool is_rectangle_overlap(std::vector<int> &rec_1, std::vector<int> &rec_2); 
+
+        // O(1) time, you can only win if the number of stones is not divisible by 4 when you start,
+        bool can_win_nim(int n); 
 }; 
