@@ -567,3 +567,26 @@ bool String::is_isomorphic(std::string s, std::string t) {
 
     return true; 
 }; 
+
+
+std::vector<std::string> String::fizz_buzz(int n) {
+    /*
+    Approaches: 
+    - O(n) time, for each num concatenate fizz if % 3 and buzz if % 5 otherwise save the num as the str, 
+
+    */
+    std::vector<std::string> fizzy; 
+    fizzy.reserve(n); 
+
+    for (int num = 1; num <= n; num++) {
+        std::string str = ""; 
+
+        if (num % 3 == 0) str += "Fizz"; 
+        if (num % 5 == 0) str += "Buzz"; 
+        if (str.empty()) str = std::to_string(num); 
+
+        fizzy.push_back(str); 
+    }
+
+    return fizzy; 
+}; 

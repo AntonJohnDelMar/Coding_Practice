@@ -66,6 +66,9 @@ class String {
 
         // O(n), map every char in s to t and vice versa using two maps, duplicates chars must match the key value pair, ensure one to one mapping for both maps 
         bool is_isomorphic(std::string s, std::string t); 
+
+        // O(n) time, for each num concatenate fizz if % 3 and buzz if % 5 otherwise save the num as the str, 
+        std::vector<std::string> fizz_buzz(int n); 
 }; 
 
 /* 
