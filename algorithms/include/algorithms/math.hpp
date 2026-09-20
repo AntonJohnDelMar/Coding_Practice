@@ -47,4 +47,7 @@ class Math {
 
         // O(logn) time, binary search for the square, if we cannot find a whole int return false 
         bool is_perfect_square(int num); 
+
+        // O(1) time, find closest point using clamping method, check if that point is within the radius 
+        bool check_overlap(int radius, int x_center, int y_center, int x_1, int y_1, int x_2, int y_2); 
 }; 

@@ -310,3 +310,21 @@ bool Math::is_perfect_square(int num) {
 
     return false; 
 }; 
+
+
+bool Math::check_overlap(int radius, int x_center, int y_center, int x_1, int y_1, int x_2, int y_2) {
+    /*
+    Approaches: 
+    - interpolate points along the edges to find closest point to circle, check if that point is within the radius 
+    - O(1) time, find closest point using clamping method, check if that point is within the radius 
+    
+    */
+
+    int x_n = std::max(x_1, std::min(x_2, x_center)); 
+    int y_n = std::max(y_1, std::min(y_2, y_center)); 
+
+    int d_x = x_n - x_center; 
+    int d_y = y_n - y_center; 
+
+    return (d_x * d_x) + (d_y * d_y) <= radius * radius; 
+}; 

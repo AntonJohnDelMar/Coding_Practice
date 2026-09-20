@@ -16,7 +16,7 @@
 int main(int argv, char* argc[]) { 
     auto algorithm = Math(); 
 
-    auto result = algorithm.is_perfect_square(17); 
+    auto result = algorithm.check_overlap(1, 0, 0, 1, -1, 3, 1); 
 
     return 0; 
 } 
