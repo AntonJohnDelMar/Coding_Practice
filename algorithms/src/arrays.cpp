@@ -704,3 +704,24 @@ std::vector<std::string> Array::summary_ranges(std::vector<int> &nums) {
 
     return ranges; 
 }; 
+
+
+void Array::move_zeroes(std::vector<int> &nums) {
+    /*
+    Approaches: 
+    - O(n) time, two pointers, first move left to the first zero, then move right and swap non-zero nums and inc left if we swap 
+
+    [4, 2, 4, 0, 0, 3, 0, 5, 1, 0] 
+    */
+
+    int left = 0; 
+    while (left < nums.size() && nums[left] != 0) left++; 
+
+    for (int right = left + 1; right < nums.size(); right++) { 
+        if (nums[right] != 0) { 
+            nums[left] = nums[right]; 
+            nums[right] = 0; 
+            left++; 
+        } 
+    }
+}; 

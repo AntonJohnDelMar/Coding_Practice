@@ -85,6 +85,9 @@ class Array {
 
         // O(n) time, itr through nums and track if the current sequence is continuous 
         std::vector<std::string> summary_ranges(std::vector<int> &nums); 
+
+        // O(n) time, two pointers, first move left to the first zero, then move right and swap non-zero nums and inc left if we swap 
+        void move_zeroes(std::vector<int> &nums); 
 }; 
 
 /*

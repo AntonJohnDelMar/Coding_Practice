@@ -16,9 +16,9 @@
 int main(int argv, char* argc[]) { 
     auto algorithm = Array(); 
 
-    std::vector<int> nums {0, 2, 3, 4, 6, 8, 9}; 
+    std::vector<int> nums {4, 2, 4, 0, 0, 3, 0, 5, 1, 0}; 
 
-    auto result = algorithm.summary_ranges(nums); 
+    algorithm.move_zeroes(nums); 
 
     return 0; 
 } 
