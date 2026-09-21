@@ -82,6 +82,9 @@ class Array {
 
         // O(n) time, O(k) space, use unordered set and a sliding window to see if there are dups within the range 
         bool contains_nearby_duplicate(std::vector<int> &nums, int k); 
+
+        // O(n) time, itr through nums and track if the current sequence is continuous 
+        std::vector<std::string> summary_ranges(std::vector<int> &nums); 
 }; 
 
 /*

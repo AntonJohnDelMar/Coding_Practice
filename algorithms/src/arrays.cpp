@@ -675,3 +675,32 @@ bool Array::contains_nearby_duplicate(std::vector<int> &nums, int k) {
     return false; 
     */
 }; 
+
+
+std::vector<std::string> Array::summary_ranges(std::vector<int> &nums) { 
+    /*
+    Approaches:  
+    - O(n) time, itr through nums and track if the current sequence is continuous 
+
+    [0, 1, 2, 4, 5, 7] 
+    */
+
+    std::vector<std::string> ranges; 
+
+    int left = 0; 
+    for (int right = 0; right < nums.size(); right++) { 
+        if (right + 1 < nums.size() && nums[right + 1] == nums[right] + 1) continue; 
+
+        else if (right == left) {
+            ranges.push_back(std::to_string(nums[right])); 
+            left++; 
+        }
+
+        else {
+            ranges.push_back(std::to_string(nums[left]) + "->" + std::to_string(nums[right])); 
+            left = right + 1; 
+        }
+    }
+
+    return ranges; 
+}; 

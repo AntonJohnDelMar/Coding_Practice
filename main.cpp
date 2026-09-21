@@ -16,9 +16,9 @@
 int main(int argv, char* argc[]) { 
     auto algorithm = Array(); 
 
-    std::vector<int> nums {1, 2, 3, 1, 2, 3}; 
+    std::vector<int> nums {0, 2, 3, 4, 6, 8, 9}; 
 
-    auto result = algorithm.contains_nearby_duplicate(nums, 2); 
+    auto result = algorithm.summary_ranges(nums); 
 
     return 0; 
 } 
