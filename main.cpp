@@ -14,9 +14,11 @@
 
 
 int main(int argv, char* argc[]) { 
-    auto algorithm = Math(); 
+    auto algorithm = Array(); 
 
-    auto result = algorithm.check_overlap(1, 0, 0, 1, -1, 3, 1); 
+    std::vector<int> nums {1, 2, 3, 1, 2, 3}; 
+
+    auto result = algorithm.contains_nearby_duplicate(nums, 2); 
 
     return 0; 
 } 

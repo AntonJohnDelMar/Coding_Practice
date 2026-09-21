@@ -3,6 +3,7 @@
 #include <algorithm> 
 #include <map> 
 #include <set>
+#include <stack> 
 #include <unordered_set> 
 #include <unordered_map> 
 #include <queue> 
@@ -75,6 +76,12 @@ class Array {
 
         // O(n + m + k) time, use two maps to save the frequencies of vals, then take the min frequency between interesecting elements 
         std::vector<int> intersection_II(std::vector<int> &nums_1, std::vector<int> &nums_2); 
+
+        // O(n) time, O(n) space, use sliding window to save all sub arrays that sum to target, at each index save the minimum non overlapping sub array or if there are none set to infinity, in the end we can find the smallest sum 
+        int min_sum_of_lengths(std::vector<int> &arr, int target); 
+
+        // O(n) time, O(k) space, use unordered set and a sliding window to see if there are dups within the range 
+        bool contains_nearby_duplicate(std::vector<int> &nums, int k); 
 }; 
 
 /*

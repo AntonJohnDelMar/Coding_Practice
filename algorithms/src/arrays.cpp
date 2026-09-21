@@ -608,3 +608,70 @@ std::vector<int> Array::intersection_II(std::vector<int> &nums_1, std::vector<in
 
     return result; 
 }; 
+
+
+int Array::min_sum_of_lengths(std::vector<int> &arr, int target) {
+    /*
+    Approaches: 
+    - use sliding window and track our curr sum, if sum is too small expand and if sum is too big retract, keep track of window len and save it if we get a matching sum, remember it has to be non overlapping sub arrays 
+    - O(n) time, O(n) space, use sliding window to save all sub arrays that sum to target, at each index save the minimum non overlapping sub array or if there are none set to infinity, in the end we can find the smallest sum 
+   
+    
+    [7, 3, 4, 6, 1], target = 7 
+    [7, 3, 4, 7], target = 7 
+    [8, 9, 6, 1, 4], target = 6 
+    [1, 1, 1, 2, 2, 2, 4, 4], target = 6 
+    */
+
+    int n = arr.size(); 
+    int res = n + 1; 
+    int sum = 0; 
+    int i = 0; 
+
+    std::vector<int> dp(n + 1, n); 
+
+    for (int j = 0; j < n; j++) {
+        sum += arr[j]; 
+
+        while (sum > target) sum -= arr[i++]; 
+
+        dp[j + 1] = dp[j]; 
+
+        if (sum == target) {
+            res = std::min(res, j - i + 1 + dp[i]); 
+            dp[j + 1] = std::min(dp[j], j - i + 1); 
+        }
+    }
+
+    return res == n + 1 ? -1 : res; 
+}; 
+
+
+bool Array::contains_nearby_duplicate(std::vector<int> &nums, int k) {
+    /*
+    Approaches: 
+    - O(n) time, O(n) space, use unordered map to save number and it's position, if we encounter a dup check if the curr pos is within range 
+    - O(n) time, O(k) space, use unordered set and a sliding window to see if there are dups within the range 
+
+    */
+
+    std::unordered_set<int> seen_window; 
+
+    for (int i = 0; i < nums.size(); i++) {
+        if (i > k) seen_window.erase(nums[i - k - 1]); 
+        if (seen_window.contains(nums[i])) return true; 
+        seen_window.insert(nums[i]); 
+    }
+
+    return false; 
+    /* 
+    std::unordered_map<int, int> seen_position; 
+
+    for (int i = 0; i < nums.size(); i++) { 
+        if (seen_position.contains(nums[i]) && std::abs(seen_position.at(nums[i]) - i) <= k) return true; 
+        else seen_position[nums[i]] = i; 
+    }
+
+    return false; 
+    */
+}; 
