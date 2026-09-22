@@ -244,3 +244,62 @@ std::vector<int> DynamicProgramming::pascals_triangle_row(int row_index) {
 
     return prev_row; 
 }; 
+
+
+std::vector<long long> DynamicProgramming::result_array(std::vector<int> &nums, int k) { 
+    /*
+    Approaches: 
+    - O(n + k*n*3) = O(k * n) time, O(3*n) = O(n) space, brute force, calculate products for each index if you remove the prefx/suffix/both, so three possible operations per element, we go through our product list and mod by k and see if we get our x value, nvm this is not the right soln.! 
+    - O(k * n) time, find all possible contiguous subarrays if you removed prefix/suffix/both, calculate the products and mod by k to get the remainder, count the frequencies for each remainder and return that freq count,
+ 
+    */
+
+    std::vector<long long> x_values(k); 
+    int freq[5] = {0}; 
+
+    for (auto &num: nums) {
+        num %= k; 
+        int cur[5] = {0}; 
+        cur[num]++; 
+
+        for (int x = 0; x < k; x++) cur[x * num % k] += freq[x]; 
+
+        for (int x = 0; x < k; x++) {
+            freq[x] = cur[x]; 
+            x_values[x] += freq[x]; 
+        }
+    }
+
+    return x_values; 
+}; 
+
+
+std::vector<int> DynamicProgramming::count_bits(int n) {
+    /*
+    Approaches:  
+    - separate n by it's respective groups 2^x, every time we hit a 2^x number we can reuse the previous group values, 
+    - O(n) time, O(n) space, group n by 2^x groups, every time we reach a new group we know there will be an extra one and we reuse all the previous group values to makeup the next group, 
+    
+    */
+
+    std::vector<int> bit_map(n + 1, 0); 
+
+    int current = 1; int reuse = 1; int power = 1; 
+
+    while (current <= n) { 
+        if (current < power) {
+            bit_map[current] = bit_map[reuse] + 1; 
+            reuse++; 
+        }
+
+        else {
+            bit_map[current] = 1; 
+            power *= 2; 
+            reuse = 1; 
+        }
+
+        current++; 
+    }
+
+    return bit_map; 
+}; 

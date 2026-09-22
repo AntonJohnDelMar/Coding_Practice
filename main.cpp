@@ -14,11 +14,11 @@
 
 
 int main(int argv, char* argc[]) { 
-    auto algorithm = Array(); 
+    auto algorithm = DynamicProgramming(); 
 
-    std::vector<int> nums {4, 2, 4, 0, 0, 3, 0, 5, 1, 0}; 
+    std::vector<int> nums {1, 2, 3, 4, 5}; 
 
-    algorithm.move_zeroes(nums); 
+    auto result = algorithm.count_bits(12); 
 
     return 0; 
 } 
