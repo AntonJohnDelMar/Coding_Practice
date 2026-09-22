@@ -16,9 +16,9 @@
 int main(int argv, char* argc[]) { 
     auto algorithm = DynamicProgramming(); 
 
-    std::vector<int> nums {1, 2, 3, 4, 5}; 
+    std::vector<int> stairs {1, 100, 1, 1, 1, 100, 1, 1, 100, 1}; 
 
-    auto result = algorithm.count_bits(12); 
+    auto result = algorithm.min_cost_climbing_stairs(stairs); 
 
     return 0; 
 } 

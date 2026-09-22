@@ -303,3 +303,24 @@ std::vector<int> DynamicProgramming::count_bits(int n) {
 
     return bit_map; 
 }; 
+
+
+int DynamicProgramming::min_cost_climbing_stairs(std::vector<int> &stairs) {
+    /*
+    Approaches: 
+    - O(n) time, O(n) space, calculate the min cost to go for each stair by taking the min cost to go of the previous two steps
+
+    */
+
+    std::vector<int> costs(stairs.size(), 0); 
+
+    auto cost_to_go = [&](int step) {
+        return std::min(costs[step - 1] + stairs[step - 1], costs[step - 2] + stairs[step - 2]); 
+    }; 
+
+    for (int step = 2; step < stairs.size(); step++) {
+        costs[step] = cost_to_go(step); 
+    } 
+
+    return cost_to_go(stairs.size()); 
+}; 

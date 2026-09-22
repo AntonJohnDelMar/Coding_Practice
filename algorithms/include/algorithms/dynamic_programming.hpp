@@ -36,6 +36,9 @@ class DynamicProgramming {
 
         // O(n) time, O(n) space, group n by 2^x groups, every time we reach a new group we know there will be an extra one and we reuse all the previous group values to makeup the next group, 
         std::vector<int> count_bits(int n); 
+
+        // O(n) time, O(n) space, calculate the min cost to go for each stair by taking the min cost to go of the previous two steps 
+        int min_cost_climbing_stairs(std::vector<int> &stairs); 
 }; 
 
 /*
