@@ -39,6 +39,9 @@ class DynamicProgramming {
 
         // O(n) time, O(n) space, calculate the min cost to go for each stair by taking the min cost to go of the previous two steps 
         int min_cost_climbing_stairs(std::vector<int> &stairs); 
+
+        // O(n) time, O(n) space, cache the tribonacci value for every number up to n 
+        int tribonacci(int n); 
 }; 
 
 /*

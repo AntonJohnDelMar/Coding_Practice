@@ -324,3 +324,21 @@ int DynamicProgramming::min_cost_climbing_stairs(std::vector<int> &stairs) {
 
     return cost_to_go(stairs.size()); 
 }; 
+
+
+int DynamicProgramming::tribonacci(int n) {
+    /*
+    Approaches: 
+    - O(n) time, O(n) space, cache the tribonacci value for every number up to n 
+    
+    */    
+
+    std::vector<int> tribonacci_values(38, 1); 
+    tribonacci_values[0] = 0; 
+
+    for (int i = 3; i <= n; i++) { 
+        tribonacci_values[i] = (tribonacci_values[i - 1] + tribonacci_values[i - 2] + tribonacci_values[i - 3]); 
+    }
+
+    return tribonacci_values[n]; 
+}; 
