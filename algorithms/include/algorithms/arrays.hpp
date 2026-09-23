@@ -54,10 +54,10 @@ class Array {
         int remove_duplicates(std::vector<int> &nums); 
 
         // O(n), move right until we hit num == val set the left pointer here, from now on any time num != val set that val at left and move left up 
-        int remove_element(std::vector<int>& nums, int val);  
+        int remove_element(std::vector<int> &nums, int val);  
 
         // O(logn), binary search, move window left if target is > or move right if < mid value, if we are at the smallest window size of two elements determine where the target val will be inserted 
-        int search_insert(std::vector<int>& nums, int target); 
+        int search_insert(std::vector<int> &nums, int target); 
 
         // O(n), add one to final element, while there is a carry keep adding it to the elements until there is no carry then return digits, otherwise in the end we have to insert carry into the front of digits 
         std::vector<int> plus_one(std::vector<int> &digits); 
@@ -88,6 +88,9 @@ class Array {
 
         // O(n) time, two pointers, first move left to the first zero, then move right and swap non-zero nums and inc left if we swap 
         void move_zeroes(std::vector<int> &nums); 
+
+        // O(logn) time, binary search, if middle value is smaller than right move the right, if middle val is larger move the left,  
+        int find_min_rotated_sorted_array(std::vector<int> &nums); 
 }; 
 
 /*
@@ -98,10 +101,10 @@ Completed:
 - (Easy) Contains Duplicate 
 - (Medium) Product of Array Except Self
 - (Medium) Maximum Subarray 
+- (Medium) Maximum Product Subarray 
+- (Medium) Find Minimum in Rotated Sorted Array 
 
 TODO: 
-- Maximum Product Subarray
-- Find Minimum in Rotated Sorted Array
 - Search in Rotated Sorted Array
 - 3 Sum
 - Container With Most Water

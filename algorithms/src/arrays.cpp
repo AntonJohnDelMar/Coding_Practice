@@ -366,7 +366,7 @@ int Array::remove_duplicates(std::vector<int> &nums) {
 }; 
 
 
-int Array::remove_element(std::vector<int>& nums, int val) { 
+int Array::remove_element(std::vector<int> &nums, int val) { 
     /*
     Approaches: 
     - O(n), move right until we hit num == val set the left pointer here, from now on any time num != val set that val at left and move left up 
@@ -395,7 +395,7 @@ int Array::remove_element(std::vector<int>& nums, int val) {
 }; 
 
 
-int Array::search_insert(std::vector<int>& nums, int target) {
+int Array::search_insert(std::vector<int> &nums, int target) {
     /*
     Approaches: 
     - O(logn), binary search, move window left if target is > or move right if < mid value, if we are at the smallest window size of two elements determine where the target val will be inserted 
@@ -407,22 +407,16 @@ int Array::search_insert(std::vector<int>& nums, int target) {
 
     int left = 0; 
     int right = nums.size() - 1;  
-    int mid = -1; 
 
-    while (left != right) { 
-        mid = (left + right) / 2; 
+    while (left < right) { 
+        int mid = (left + right) / 2; 
 
-        if (left == mid) target > nums[mid] ? left = right : right = left; 
+        if (target <= nums[mid]) right = mid; 
 
-        else if (target > nums[mid]) left = mid; 
-
-        else if (target < nums[mid]) right = mid; 
-
-        else return mid; 
-
+        else left = mid + 1; 
     }
 
-    return target > nums[left] ? left + 1 : left; 
+    return (target <= nums[left]) ? left : left + 1; 
 }; 
 
 
@@ -724,4 +718,25 @@ void Array::move_zeroes(std::vector<int> &nums) {
             left++; 
         } 
     }
+}; 
+
+
+int Array::find_min_rotated_sorted_array(std::vector<int> &nums) { 
+    /*
+    Approaches: 
+    - O(n) time, naive approach, find deflection point where curr num < prev num 
+    - O(logn) time, binary search, if middle value is smaller than right move the right, if middle val is larger move the left,  
+
+    */
+
+    int left = 0; 
+    int right = nums.size() - 1; 
+    while (left < right) {
+        int middle = (left + right) / 2; 
+
+        if (nums[middle] < nums[right]) right = middle; 
+        else left = middle + 1; 
+    } 
+
+    return nums[left]; 
 }; 
