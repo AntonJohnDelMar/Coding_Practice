@@ -740,3 +740,28 @@ int Array::find_min_rotated_sorted_array(std::vector<int> &nums) {
 
     return nums[left]; 
 }; 
+
+
+int Array::smallest_index(std::vector<int> &nums) {
+    /*
+    Approaches: 
+    - O(min(n, 27)) time, sum the digits of each entry and see if it equals the index, the largest index we can represent is 27 using 999, this saves time if n > 27 
+    
+    */
+
+    const int MAX_INDEX = std::min(static_cast<int>(nums.size()), 28); 
+
+    for (int i = 0; i < MAX_INDEX; i++) { 
+        int curr_num = nums[i]; 
+        int digit_sum = 0; 
+
+        while (curr_num != 0) {
+            digit_sum += curr_num % 10; 
+            curr_num /= 10; 
+        }
+
+        if (digit_sum == i) return i; 
+    }
+
+    return -1; 
+}; 

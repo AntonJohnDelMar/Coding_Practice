@@ -91,6 +91,9 @@ class Array {
 
         // O(logn) time, binary search, if middle value is smaller than right move the right, if middle val is larger move the left,  
         int find_min_rotated_sorted_array(std::vector<int> &nums); 
+
+        // O(min(n, 27)) time, sum the digits of each entry and see if it equals the index, the largest index we can represent is 27 using 999, this saves time if n > 27 
+        int smallest_index(std::vector<int> &nums); 
 }; 
 
 /*
