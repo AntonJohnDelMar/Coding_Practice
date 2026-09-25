@@ -34,6 +34,8 @@ class Tree {
         // O(V * v) = O(V^2), recursive approach, check if current tree is same as subtree, if not check if left or right are same as subtree, for each node in our tree check if it is a subtree, this is doubly recursive 
         bool is_subtree(TreeNode* root, TreeNode* subRoot); 
 
+        // O(V) time, use recursion, check left child first then you visit yourself and check right child next, this is inorder 
+        std::vector<int> inorder_traversal(TreeNode *root); 
 }; 
 
 /*

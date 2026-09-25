@@ -147,3 +147,27 @@ bool Tree::is_subtree(TreeNode* root, TreeNode* sub_root) {
     else return (is_subtree(root->left, sub_root) || is_subtree(root->right, sub_root)); 
 }; 
 
+
+std::vector<int> Tree::inorder_traversal(TreeNode *root) {
+    /*
+    Approaches: 
+    - O(V) time, use recursion, check left child first then you visit yourself and check right child next, this is inorder 
+
+    */
+
+    std::vector<int> traversal; 
+
+    auto inorder = [&](this const auto &self, TreeNode* root, std::vector<int> &traversal) -> void { 
+        if (root == nullptr) return; 
+
+        self(root->left, traversal); 
+
+        traversal.push_back(root->val); 
+
+        self(root->right, traversal); 
+    }; 
+
+    inorder(root, traversal); 
+
+    return traversal; 
+}; 
