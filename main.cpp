@@ -14,11 +14,17 @@
 
 
 int main(int argv, char* argc[]) { 
-    auto algorithm = DynamicProgramming(); 
+    auto algorithm = Tree(); 
 
-    std::vector<int> stairs {1, 100, 1, 1, 1, 100, 1, 1, 100, 1}; 
+    TreeNode* node_7 = new TreeNode(3); 
+    TreeNode* node_6 = new TreeNode(4); 
+    TreeNode* node_5 = new TreeNode(4); 
+    TreeNode* node_4 = new TreeNode(3); 
+    TreeNode* node_3 = new TreeNode(2, node_6, node_7); 
+    TreeNode* node_2 = new TreeNode(2, node_4, node_5); 
+    TreeNode* node_1 = new TreeNode(1, node_2, node_3); 
 
-    auto result = algorithm.min_cost_climbing_stairs(stairs); 
+    auto result = algorithm.is_symmetric(node_1); 
 
     return 0; 
 } 

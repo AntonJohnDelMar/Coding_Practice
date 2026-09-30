@@ -148,7 +148,7 @@ bool Tree::is_subtree(TreeNode* root, TreeNode* sub_root) {
 }; 
 
 
-std::vector<int> Tree::inorder_traversal(TreeNode *root) {
+std::vector<int> Tree::inorder_traversal(TreeNode* root) {
     /*
     Approaches: 
     - O(V) time, use recursion, check left child first then you visit yourself and check right child next, this is inorder 
@@ -170,4 +170,29 @@ std::vector<int> Tree::inorder_traversal(TreeNode *root) {
     inorder(root, traversal); 
 
     return traversal; 
+}; 
+
+
+bool Tree::is_symmetric(TreeNode* root) {
+    /*
+    Approaches: 
+    - do a level order traversal, for each level check if it is symmetrical using a two pointer technique or deque, 
+    - do a level order traversal, once you are halfway through a layer check if the later half is it's mirror 
+    - bfs, at each search layer check if it is symmetrical 
+    - O(V) time, recursion method, compare two subtrees A and B, A's left subtree should equal B's right subtree and A's right subtree should equal B's left subtree, 
+
+    */
+
+    auto check_mirror = [](this const auto &self, TreeNode* left, TreeNode* right) { 
+        if (left == nullptr && right == nullptr) return true; 
+
+        else if (left != nullptr && right != nullptr) { 
+            return left->val == right->val && self(left->left, right->right) && self(left->right, right->left); 
+        }
+
+        else return false; 
+    }; 
+
+    if (root == nullptr) return false; 
+    else return check_mirror(root->left, root->right); 
 }; 

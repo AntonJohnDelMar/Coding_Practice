@@ -2,6 +2,7 @@
 #include <algorithm> 
 #include <queue> 
 #include <vector> 
+#include <cmath> 
 
 
 
@@ -35,7 +36,10 @@ class Tree {
         bool is_subtree(TreeNode* root, TreeNode* subRoot); 
 
         // O(V) time, use recursion, check left child first then you visit yourself and check right child next, this is inorder 
-        std::vector<int> inorder_traversal(TreeNode *root); 
+        std::vector<int> inorder_traversal(TreeNode* root); 
+
+        // O(V) time, recursion method, compare two subtrees A and B, A's left subtree should equal B's right subtree and A's right subtree should equal B's left subtree, 
+        bool is_symmetric(TreeNode* root); 
 }; 
 
 /*
