@@ -69,6 +69,9 @@ class String {
 
         // O(n) time, for each num concatenate fizz if % 3 and buzz if % 5 otherwise save the num as the str, 
         std::vector<std::string> fizz_buzz(int n); 
+
+        // O(n) time, O(n + n) = O(n) space, use two maps to see if we can generate unique mappings in both directions 
+        bool word_pattern(std::string pattern, std::string s); 
 }; 
 
 /* 

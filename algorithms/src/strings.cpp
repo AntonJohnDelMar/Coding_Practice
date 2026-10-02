@@ -590,3 +590,42 @@ std::vector<std::string> String::fizz_buzz(int n) {
 
     return fizzy; 
 }; 
+
+
+bool String::word_pattern(std::string pattern, std::string s) {
+    /*
+    Approaches: 
+    - O(n + m) time, O(n + m) space, generate two sets and see if they have the same amount of unique characters to allow for a one to one mapping, doesn't work in the case one char maps to two words as it doesn't catch that 
+    - O(n) time, O(n + n) = O(n) space, use two maps to see if we can generate unique mappings in both directions 
+
+    */
+
+    std::unordered_map<char, std::string> unique_p; 
+    std::unordered_map<std::string, char> unique_s; 
+
+    std::stringstream ss(s); 
+    std::string word; 
+    int s_size = 0; 
+
+    while (ss >> word) { 
+        char _char = pattern[s_size]; 
+        s_size++; 
+
+        if (s_size > pattern.length()) return false; 
+
+        else if (unique_p.contains(_char)) { 
+            if (unique_p[_char] != word) return false; 
+        }
+
+        else if (unique_s.contains(word)) {
+            if (unique_s[word] != _char) return false; 
+        }
+
+        else {
+            unique_p[_char] = word; 
+            unique_s[word] = _char; 
+        }
+    }
+
+    return s_size == pattern.length(); 
+}; 
