@@ -629,3 +629,16 @@ bool String::word_pattern(std::string pattern, std::string s) {
 
     return s_size == pattern.length(); 
 }; 
+
+
+void String::reverse_string(std::vector<char> &s) { 
+    int right = s.size() - 1; 
+    for (int left = 0; left < s.size() / 2; left++) {
+        char temp = s[left]; 
+
+        s[left] = s[right]; 
+        s[right] = temp; 
+
+        right--; 
+    }
+}; 

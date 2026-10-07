@@ -72,6 +72,9 @@ class String {
 
         // O(n) time, O(n + n) = O(n) space, use two maps to see if we can generate unique mappings in both directions 
         bool word_pattern(std::string pattern, std::string s); 
+
+        // O(n) time, O(1) space, use two pointers and a temp char to swap the char at the front and end 
+        void reverse_string(std::vector<char> &s); 
 }; 
 
 /* 
