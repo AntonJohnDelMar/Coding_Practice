@@ -81,6 +81,9 @@ class String {
 
         // O(n) time, iterate through s and remove all outer parentheses of the primitive strings, the number of open and closed parentheses should be the same so utilize this fact to skip outer parentheses, 
         std::string remove_outer_parentheses(std::string s); 
+
+        // O(n) time, save letter counts for ransom note as positive and negative for magazine, we should only have 0 or negative values left 
+        bool can_construct(std::string ransom_note, std::string magazine); 
 }; 
 
 /* 

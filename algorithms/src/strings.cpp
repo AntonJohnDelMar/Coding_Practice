@@ -706,3 +706,26 @@ std::string String::remove_outer_parentheses(std::string s) {
 
     return output; 
 }; 
+
+
+bool String::can_construct(std::string ransom_note, std::string magazine) {
+    /*
+    Approaches: 
+    - O(n) time, save letter counts for ransom note as positive and negative for magazine, we should only have 0 or negative values left 
+
+    */ 
+
+    if (magazine.size() < ransom_note.size()) return false; 
+
+    std::unordered_map<char, int> letters; 
+    for (int i = 0; i < magazine.size(); i++) {
+        if (i <= ransom_note.size() - 1) letters[ransom_note[i]]++; 
+        letters[magazine[i]]--; 
+    }
+
+    for (auto &[key, value] : letters) {
+        if (value > 0) return false;
+    }
+
+    return true; 
+}; 
