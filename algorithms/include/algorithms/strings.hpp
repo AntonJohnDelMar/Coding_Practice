@@ -75,6 +75,9 @@ class String {
 
         // O(n) time, O(1) space, use two pointers and a temp char to swap the char at the front and end 
         void reverse_string(std::vector<char> &s); 
+
+        // O(n) time, O(1) space, two pointer, swap elements if they are vowels 
+        std::string reverse_vowels(std::string s); 
 }; 
 
 /* 

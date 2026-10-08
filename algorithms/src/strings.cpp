@@ -642,3 +642,36 @@ void String::reverse_string(std::vector<char> &s) {
         right--; 
     }
 }; 
+
+
+std::string String::reverse_vowels(std::string s) {
+    /*
+    Approaches: 
+    - O(n) time, O(1) space, two pointer, swap elements if they are vowels 
+
+    */
+
+    auto check_vowel = [](char c) -> bool {
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'; 
+    }; 
+
+    auto swap = [](int left, int right, std::string &s) {
+        char temp = s[left]; 
+        s[left] = s[right]; 
+        s[right] = temp; 
+    }; 
+
+    int left = 0; int right = s.size() - 1; 
+    while (left < right) { 
+        while (left < s.size() && !check_vowel(s[left])) left++; 
+        while (right >= 0 && !check_vowel(s[right])) right--; 
+        if (left >= right) break; 
+
+        swap(left, right, s); 
+
+        left++; 
+        right--; 
+    }
+
+    return s; 
+}; 
