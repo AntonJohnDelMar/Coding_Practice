@@ -675,3 +675,34 @@ std::string String::reverse_vowels(std::string s) {
 
     return s; 
 }; 
+
+
+std::string String::remove_outer_parentheses(std::string s) {
+    /*
+    Approaches: 
+    - O(n) time, iterate through s and remove all outer parentheses of the primitive strings, the number of open and closed parentheses should be the same so utilize this fact to skip outer parentheses, 
+
+    */
+
+    std::string output = ""; 
+
+    bool first_open = true; 
+    int open = 0; int closed = 0; 
+    for (auto &c : s) { 
+        if (c == '(' && first_open) { first_open = !first_open; continue; } 
+
+        else if (c == '(' && !first_open) open++; 
+
+        else closed++; 
+
+        if (closed > open) { 
+            first_open = !first_open; 
+            open = 0; 
+            closed = 0; 
+        }
+
+        else output += c; 
+    }
+
+    return output; 
+}; 

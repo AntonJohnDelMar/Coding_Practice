@@ -78,6 +78,9 @@ class String {
 
         // O(n) time, O(1) space, two pointer, swap elements if they are vowels 
         std::string reverse_vowels(std::string s); 
+
+        // O(n) time, iterate through s and remove all outer parentheses of the primitive strings, the number of open and closed parentheses should be the same so utilize this fact to skip outer parentheses, 
+        std::string remove_outer_parentheses(std::string s); 
 }; 
 
 /* 

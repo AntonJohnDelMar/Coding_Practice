@@ -16,7 +16,7 @@
 int main(int argv, char* argc[]) { 
     auto algorithm = String(); 
 
-    auto result = algorithm.reverse_vowels("IceCreAm"); 
+    auto result = algorithm.remove_outer_parentheses("(()())(())"); 
 
     return 0; 
 } 
