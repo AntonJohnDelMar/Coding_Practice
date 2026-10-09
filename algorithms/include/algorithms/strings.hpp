@@ -84,6 +84,9 @@ class String {
 
         // O(n) time, save letter counts for ransom note as positive and negative for magazine, we should only have 0 or negative values left 
         bool can_construct(std::string ransom_note, std::string magazine); 
+
+        // O(n) time, O(26) space, save an array to represent the alphabet, save a chars index when we see it first but if we come across it again set it to be invalid, finally itr through and find the smallest index for the valid chars 
+        int first_unique_char(std::string s); 
 }; 
 
 /* 

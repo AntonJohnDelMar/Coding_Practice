@@ -729,3 +729,27 @@ bool String::can_construct(std::string ransom_note, std::string magazine) {
 
     return true; 
 }; 
+
+
+int String::first_unique_char(std::string s) {
+    /*
+    Approaches: 
+    - O(n) time, O(26) space, save an array to represent the alphabet, save a chars index when we see it first but if we come across it again set it to be invalid, finally itr through and find the smallest index for the valid chars 
+
+    */
+
+    std::vector<int> alphabet(26, -1); 
+
+    for (int i = 0; i < s.size(); i++) {
+        char c = s[i]; 
+        if (alphabet[c - 'a'] == -1) alphabet[c - 'a'] = i; 
+        else alphabet[c - 'a'] = -2; 
+    }
+
+    int smallest = 1e5; 
+    for (auto &c : alphabet) {
+        if (c >= 0) smallest = std::min(smallest, c); 
+    }
+
+    return smallest == 1e5 ? -1 : smallest; 
+}; 

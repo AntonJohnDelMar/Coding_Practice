@@ -16,7 +16,7 @@
 int main(int argv, char* argc[]) { 
     auto algorithm = String(); 
 
-    auto result = algorithm.remove_outer_parentheses("(()())(())"); 
+    auto result = algorithm.first_unique_char("leetcode"); 
 
     return 0; 
 } 
