@@ -87,6 +87,9 @@ class String {
 
         // O(n) time, O(26) space, save an array to represent the alphabet, save a chars index when we see it first but if we come across it again set it to be invalid, finally itr through and find the smallest index for the valid chars 
         int first_unique_char(std::string s); 
+
+        // O(n + m) time, O(26) space, save alphabet array to save character frequencies, return char with -1 or 1 frequency 
+        char find_the_difference(std::string s, std::string t); 
 }; 
 
 /* 

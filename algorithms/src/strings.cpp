@@ -753,3 +753,23 @@ int String::first_unique_char(std::string s) {
 
     return smallest == 1e5 ? -1 : smallest; 
 }; 
+
+
+char String::find_the_difference(std::string s, std::string t) {
+    /*
+    Approaches: 
+    - use map to count frequencies, return the char with -1 or 1 frequency, 
+    - O(n + m) time, O(26) space, save alphabet array to save character frequencies, return char with -1 or 1 frequency 
+
+    */
+
+    std::vector<int> alphabet(26, 0); 
+
+    for (auto &c : s) alphabet[c - 'a']++; 
+
+    for (auto &c : t) alphabet[c - 'a']--; 
+
+    for (int i = 0; i < alphabet.size(); i++) if (alphabet[i] != 0) return static_cast<char>(i + 'a'); 
+
+    return ' '; 
+}; 
