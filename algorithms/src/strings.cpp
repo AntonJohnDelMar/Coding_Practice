@@ -773,3 +773,25 @@ char String::find_the_difference(std::string s, std::string t) {
 
     return ' '; 
 }; 
+
+
+int String::longest_palindrome(std::string s) {
+    /*
+    Approaches: 
+    - O(2n) = O(n) time, O(n) space, to make a palindrome we need an even amount of characters to make two symmetrical ends, then we can use the largest odd number char in the middle and the even parts of the rest of the odds, use a map to count frequencies 
+
+    */
+
+    std::unordered_map<char, int> counts; 
+    for (auto &c : s) counts[c]++; 
+
+    bool odd = false; 
+    int longest = 0; 
+
+    for (auto &[key, value] : counts) {
+        longest += value; 
+        if (value % 2 == 1) { longest--; odd = true; }
+    }
+
+    return odd ? ++longest : longest; 
+}; 

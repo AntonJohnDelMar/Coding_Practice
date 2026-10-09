@@ -90,6 +90,9 @@ class String {
 
         // O(n + m) time, O(26) space, save alphabet array to save character frequencies, return char with -1 or 1 frequency 
         char find_the_difference(std::string s, std::string t); 
+
+        // O(2n) = O(n) time, O(n) space, to make a palindrome we need an even amount of characters to make two symmetrical ends, then we can use the largest odd number char in the middle and the even parts of the rest of the odds, use a map to count frequencies 
+        int longest_palindrome(std::string s); 
 }; 
 
 /* 
